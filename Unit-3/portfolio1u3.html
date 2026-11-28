@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f8e9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1b5e20;
+        }
+
+        p {
+            color: #00695c;
+            font-size: 18px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        #details {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #424242;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Welcome to My Portfolio</h1>
+
+    <!-- Welcome Message -->
+    <p id="welcome"></p>
+
+    <!-- Student Information -->
+    <h2>My Information</h2>
+
+    <p id="name"></p>
+    <p id="age"></p>
+    <p id="course"></p>
+
+    <!-- Button -->
+    <button onclick="showDetails()">
+        Show My Details
+    </button>
+
+    <!-- Display Details -->
+    <div id="details"></div>
+
+    <script>
+
+        // Declare Variables
+        let name = "jeel";
+        let age = 20;
+        const course = "BCA";
+
+        // Display Welcome Message
+        document.getElementById("welcome").innerHTML =
+            "Hello! Welcome to my personal portfolio website.";
+
+        // Display Stored Information
+        document.getElementById("name").innerHTML =
+            "Name: " + name;
+
+        document.getElementById("age").innerHTML =
+            "Age: " + age;
+
+        document.getElementById("course").innerHTML =
+            "Course: " + course;
+
+        // Button Click Function
+        function showDetails() {
+
+            document.getElementById("details").innerHTML =
+                "<h3>My Details</h3>" +
+                "Name: " + name + "<br>" +
+                "Age: " + age + "<br>" +
+                "Course: " + course;
+        }
+
+    </script>
+
+</body>
+</html>

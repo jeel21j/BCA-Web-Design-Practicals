@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1b5e20;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid gray;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Registration Form</h1>
+
+        <!-- Registration Form -->
+        <form id="registrationForm">
+
+            <!-- Name Field -->
+            <input type="text" id="name"
+                placeholder="Enter Your Name"
+                required>
+
+            <br>
+
+            <!-- Email Field -->
+            <input type="email" id="email"
+                placeholder="Enter Your Email"
+                required>
+
+            <br>
+
+            <!-- Phone Number Field -->
+            <input type="tel" id="phone"
+                placeholder="Enter Phone Number"
+                pattern="[0-9]{10}"
+                title="Enter a 10-digit phone number"
+                required>
+
+            <br><br>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+
+        </form>
+
+        <!-- Display Message -->
+        <div id="message"></div>
+
+    </div>
+
+    <script>
+
+        // Get Form Element
+        const form = document.getElementById("registrationForm");
+
+        // JavaScript Event Handling
+        form.addEventListener("submit", function(event) {
+
+            // Prevent Form Submission
+            event.preventDefault();
+
+            // Get Input Values
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phone = document.getElementById("phone").value.trim();
+
+            let message = document.getElementById("message");
+
+            // Check Name
+            if (name === "") {
+
+                message.style.color = "red";
+                message.innerHTML = "Please enter your name.";
+
+            }
+
+            // Check Email Format
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+                message.style.color = "red";
+                message.innerHTML = "Please enter a valid email address.";
+
+            }
+
+            // Check Phone Number
+            else if (!/^[0-9]{10}$/.test(phone)) {
+
+                message.style.color = "red";
+                message.innerHTML = "Please enter a valid 10-digit phone number.";
+
+            }
+
+            // Successful Registration
+            else {
+
+                message.style.color = "green";
+                message.innerHTML =
+                    "Registration Successful! Thank You, " + name + ".";
+
+                form.reset();
+
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

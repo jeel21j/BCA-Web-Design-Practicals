@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1b5e20;
+        }
+
+        .container {
+            background-color: white;
+            padding: 25px;
+            width: 350px;
+            margin: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px gray;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 80%;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: blue;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Result</h1>
+
+        <h3>Enter Subject Marks</h3>
+
+        <!-- Input Fields -->
+        <input type="number" id="sub1"
+            placeholder="Enter Subject 1 Marks">
+
+        <input type="number" id="sub2"
+            placeholder="Enter Subject 2 Marks">
+
+        <input type="number" id="sub3"
+            placeholder="Enter Subject 3 Marks">
+
+        <br><br>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateResult()">
+            Calculate Result
+        </button>
+
+        <!-- Display Result -->
+        <div id="result"></div>
+
+    </div>
+
+    <script>
+
+        function calculateResult() {
+
+            // Get Subject Marks
+            let marks1 = Number(document.getElementById("sub1").value);
+            let marks2 = Number(document.getElementById("sub2").value);
+            let marks3 = Number(document.getElementById("sub3").value);
+
+            // Validate Marks
+            if (
+                document.getElementById("sub1").value === "" ||
+                document.getElementById("sub2").value === "" ||
+                document.getElementById("sub3").value === "" ||
+                marks1 < 0 || marks1 > 100 ||
+                marks2 < 0 || marks2 > 100 ||
+                marks3 < 0 || marks3 > 100
+            ) {
+                document.getElementById("result").innerHTML =
+                    "Please enter valid marks between 0 and 100.";
+                return;
+            }
+
+            // Calculate Total Marks
+            let total = marks1 + marks2 + marks3;
+
+            // Calculate Percentage
+            let percentage = (total / 300) * 100;
+
+            // Check Pass or Fail
+            let status;
+
+            if (marks1 >= 40 && marks2 >= 40 && marks3 >= 40) {
+                status = "PASS";
+            }
+            else {
+                status = "FAIL";
+            }
+
+            // Display Result
+            document.getElementById("result").innerHTML =
+                "<h3>Result</h3>" +
+                "Total Marks: " + total + " / 300<br><br>" +
+                "Percentage: " + percentage.toFixed(2) + "%<br><br>" +
+                "Result: " + status;
+
+        }
+
+    </script>
+
+</body>
+</html>
