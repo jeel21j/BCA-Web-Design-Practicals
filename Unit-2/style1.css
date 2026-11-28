@@ -1,0 +1,31 @@
+
+/* Navigation Bar */
+nav {
+    background-color: #2e7d32;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Navigation Links */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 18px;
+}
+
+/* Contact Button */
+.contact-btn {
+    background-color: green;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Hover Effect */
+.contact-btn:hover {
+    background-color: blue;
+}
